@@ -43,14 +43,14 @@ fi
 #cd ..
 
 # build Linux-libre, with ath9k_htc
-[ ! -f linux-libre-$KVER-gnu.tar.lz ] && wget https://www.linux-libre.fsfla.org/pub/linux-libre/releases/$KVER-gnu/linux-libre-$KVER-gnu.tar.lz
-[ ! -f linux-libre-$KVER-gnu.tar.lz.sign ] && wget https://www.linux-libre.fsfla.org/pub/linux-libre/releases/$KVER-gnu/linux-libre-$KVER-gnu.tar.lz.sign
+[ ! -f linux-$KVER.tar.xz ] && wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-$KVER.tar.xz
+#[ ! -f linux-libre-$KVER-gnu.tar.lz.sign ] && wget https://www.linux-libre.fsfla.org/pub/linux-libre/releases/$KVER-gnu/linux-libre-$KVER-gnu.tar.lz.sign
 
 #verify the signature
-gpg --import $RESOURCES/linux-libre-signing-key.gpg
-gpg --verify linux-libre-$KVER-gnu.tar.lz.sign linux-libre-$KVER-gnu.tar.lz
+#gpg --import $RESOURCES/linux-libre-signing-key.gpg
+#gpg --verify linux-libre-$KVER-gnu.tar.lz.sign linux-libre-$KVER-gnu.tar.lz
 
-[ ! -d linux-$KVER ] && tar --lzip -xvf linux-libre-$KVER-gnu.tar.lz && FRESH=true
+[ ! -d linux-$KVER ] && tar -xvf linux-$KVER.tar.xz && FRESH=true
 cd linux-$KVER
 make clean
 make mrproper

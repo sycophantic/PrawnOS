@@ -175,6 +175,7 @@ chroot $outmnt apt-get install -y -d xorg acpi-support lightdm tasksel dpkg libr
 
 chroot $outmnt apt-get install -d -y firefox-esr
 # grab chromium as well, since sound is still broken in firefox for some media
+chroot $outmnt apt-get install -d -y firmware-ralink
 
 #Cleanup hosts
 rm -rf $outmnt/etc/hosts #This is what https://wiki.debian.org/EmDebian/CrossDebootstrap suggests
